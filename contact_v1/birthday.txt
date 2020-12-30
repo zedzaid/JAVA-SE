@@ -1,0 +1,2 @@
+Contact [name=adam, address=exs, mobileNumber=[123], imageReference=./.f, dateOfBirth=1998-02-01, email=[s@s.c, m@m.c], groupId=2]
+Contact [name=steve, address=fds, mobileNumber=[444], imageReference=./g, dateOfBirth=2012-02-02, email=[fk], groupId=1]
