@@ -9,9 +9,12 @@ import java.util.Set;
 
 import static java.util.stream.Collectors.*;
 
+import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileReader;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.time.LocalDate;
 
 import com.example.demo.daos.ContactDaoImpl;
 import com.example.demo.daos.GroupDaoImp;
@@ -213,4 +216,38 @@ public class Service {
 		public ContactDaoImpl getContactDao() {
 			return this.contactDaoObject;
 		}
+		
+		
+//==============READ DATA FROM FILE =====================
+
+		public boolean readContactFromFile(String fileName) {
+			boolean result=false;
+			try {
+				BufferedReader reader = new BufferedReader(new FileReader(fileName));
+				String eachLine="";
+				while((eachLine=reader.readLine())!=null) {
+					String contact[] = eachLine.split(" ");
+					String name = contact[0];
+					String address = contact[1];
+					String []mobileNumber = contact[2].split(",");
+					String imageReference = contact[3];
+					LocalDate dateOfBirth = LocalDate.parse(contact[4]);
+					String email[] = contact[5].split(",");
+					int groupId = Integer.parseInt(contact[6]);
+					Contact contactObj = new Contact(name, address, mobileNumber, imageReference, dateOfBirth, email, groupId);
+					addContact(contactObj);
+					
+				}
+				reader.close();
+				result=true;
+			} 
+			catch (IOException e) {	
+				e.printStackTrace();
+			}
+			return result;
+		}
 }
+
+
+
+

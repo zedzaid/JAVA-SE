@@ -252,6 +252,18 @@ public class ContactController {
 		
 	}
 	
+	public void addContactThroughFile() {
+		System.out.println("enter the file name");
+		String fileName = scanner.nextLine();
+		boolean result = this.service.readContactFromFile(fileName);
+		if(result==true) {
+			System.out.println("contact added from file successfully");
+		}
+		else {
+			System.out.println("some error occured while adding the contact");
+		}
+	}
+	
 	
 
 //===============================CONTROLLERS FOR GENERATING DATA================================

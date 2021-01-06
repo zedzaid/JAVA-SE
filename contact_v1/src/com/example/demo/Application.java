@@ -21,11 +21,12 @@ public class Application {
 		System.out.println("\n1. ADD\n"
 						   + "2. DELETE\n"
 						   + "3. UPDATE\n"
-						   + "4. GET CONTACTS BIRTHDAYS BY MONTH\n"
-						   + "5. GET CONTACTS WITH ONLY NAME AND EMAIL/NUMBER\n"
-						   + "6. GET CONTACTS ALONG WITH THEIR GROUP NAME\n"
-						   + "7. GET CONTACTS WITH SORTED GROUP SIZE\n"
-						   + "8. EXIT");
+						   + "4. ADD THROUGH FILE\n"
+						   + "5. GET CONTACTS BIRTHDAYS BY MONTH\n"
+						   + "6. GET CONTACTS WITH ONLY NAME AND EMAIL/NUMBER\n"
+						   + "7. GET CONTACTS ALONG WITH THEIR GROUP NAME\n"
+						   + "8. GET CONTACTS WITH SORTED GROUP SIZE\n"
+						   + "9. EXIT");
 		int choice = scanner.nextInt();
 		switch (choice) {
 		case 1:
@@ -38,18 +39,21 @@ public class Application {
 			controller.updateContact();
 			break;
 		case 4:
-			controller.queryContactByBirthday();
+			controller.addContactThroughFile();
 			break;
 		case 5:
-			controller.queryLimitedAttributes();
+			controller.queryContactByBirthday();
 			break;
 		case 6:
-			controller.queryContactByGroup();
+			controller.queryLimitedAttributes();
 			break;
 		case 7:
-			controller.queryContactByGroupCount();
+			controller.queryContactByGroup();
 			break;
 		case 8:
+			controller.queryContactByGroupCount();
+			break;
+		case 9:
 			menuLoop=false;
 			controller.closeAll();
 			scanner.close();
